@@ -31,7 +31,7 @@
             </div>
             <div class="flex space-x-2">
                 <img class="w-7 h-7" src="assets/coin.png" alt="coin">
-                <p class="font-bold"><span>5500</span> BDT</p>
+                <p class="font-bold"><span id="balance-amount">5500</span> BDT</p>
             </div>
         </nav>
     </header>
@@ -57,7 +57,7 @@
                         <div>
                             <button class="btn">
                                 <img src="assets/coin.png" alt="">
-                                <span>0 BDT</span>
+                                <span id="event-1">0</span>BDT
                             </button>
                         </div>
                         <h2 class="card-title">Donate for Flood at Noakhali, Bangladesh</h2>
@@ -67,9 +67,9 @@
                             efforts
                             and making a positive impact on the lives of those in need.</p>
                         <div class="card-actions flex flex-col">
-                            <input type="number" placeholder="Write Donation Amount"
+                            <input id="donation-1" type="number" placeholder="Write Donation Amount"
                                 class="input input-bordered w-full" />
-                            <button class="btn bg-primary-color w-full">Donate Now</button>
+                            <button id="donate-btn-1" class="btn bg-primary-color w-full">Donate Now</button>
                         </div>
                     </div>
                 </div>
@@ -156,13 +156,29 @@
                 </div>
             </div>
         </div>
+        <dialog id="my_modal_1" class="modal">
+            <div class="modal-box">
+                <h3 class="text-center font-bold text-3xl">Congrates!</h3>
+                <div class="flex flex-col justify-center">
+                    <div class="flex justify-center">
+                        <img class="w-7 h-7 mt-4" src="assets/coin.png" alt="">
+                    </div>
+                    <p class="py-4 text-center">You Have Donated for Human Kind</p>
+                    <p class="text-center text-2xl font-bold">Successfully</p>
+                    <div class="modal-action flex w-full justify-center">
+                        <form method="dialog">
+                            <button class="btn">Close Confirmation</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </dialog>
     </main>
     <footer class="bg-[#f9f7f3] h-32">
-
     </footer>
 
     <!-- script -->
-     <script src="js/index.js"></script>
+    <script src="js/index.js"></script>
 </body>
 
 </html>
