@@ -32,6 +32,10 @@ document.getElementById("donate-btn-1").
 
         // show modal
         document.getElementById("my_modal").showModal();
+
+        // create history
+        const history = createHistory(amount, "Flood-2024", "Noakhali, Bangladesh");
+        document.getElementById("histories").appendChild(history);
     })
 
 
@@ -46,6 +50,10 @@ document.getElementById("donate-btn-2").
 
         // show modal
         document.getElementById("my_modal").showModal();
+
+        // create history
+        const history = createHistory(amount, "Flood Relief", "Feni, Bangladesh");
+        document.getElementById("histories").appendChild(history);
     })
 
 document.getElementById("donate-btn-3").
@@ -59,4 +67,22 @@ document.getElementById("donate-btn-3").
 
         // show modal
         document.getElementById("my_modal").showModal();
+
+        // create history
+        const history = createHistory(amount, "Aid for Injured", "Dhaka, Bangladesh");
+        document.getElementById("histories").appendChild(history);
     })
+
+function createHistory(amount, event, place) {
+    const currentTime = new Date();
+    const txDiv = document.createElement("div");
+    txDiv.innerHTML = `
+    <div class="card lg:card-side bg-base-100 border p-6 gap-x-4">
+        <div class="flex flex-col gap-y-3">
+            <p class="font-bold">${amount} Taka is Donated for ${event} at ${place}</p>
+            <p>Date : ${currentTime.toString()}</p>
+        </div>
+    </div>
+        `
+    return txDiv;
+}
