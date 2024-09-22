@@ -26,16 +26,24 @@ document.getElementById("donate-btn-1").
         const event = document.getElementById("event-1").innerText;
         const amount = document.getElementById("donation-1").value;
         const oldBalance = document.getElementById("balance-amount").innerText;
-        const newBalance = parseInt(oldBalance) + parseInt(amount);
-        document.getElementById("balance-amount").innerText = newBalance;
-        document.getElementById("event-1").innerText = parseFloat(event) + parseFloat(amount);
 
-        // show modal
-        document.getElementById("my_modal").showModal();
+        // input validation
+        inputValidation(amount, oldBalance);
 
-        // create history
-        const history = createHistory(amount, "Flood-2024", "Noakhali, Bangladesh");
-        document.getElementById("histories").appendChild(history);
+        const checkValidation = inputValidation(amount, oldBalance);
+
+        if (checkValidation) {
+            const newBalance = parseInt(oldBalance) - parseInt(amount);
+            document.getElementById("balance-amount").innerText = newBalance;
+            document.getElementById("event-1").innerText = parseFloat(event) + parseFloat(amount);
+
+            // show modal
+            document.getElementById("my_modal").showModal();
+
+            // create history
+            const history = createHistory(amount, "Flood-2024", "Noakhali, Bangladesh");
+            document.getElementById("histories").appendChild(history);
+        }
     })
 
 
@@ -44,16 +52,24 @@ document.getElementById("donate-btn-2").
         const event = document.getElementById("event-2").innerText;
         const amount = document.getElementById("donation-2").value;
         const oldBalance = document.getElementById("balance-amount").innerText;
-        const newBalance = parseInt(oldBalance) + parseInt(amount);
-        document.getElementById("balance-amount").innerText = newBalance;
-        document.getElementById("event-2").innerText = parseFloat(event) + parseFloat(amount);
 
-        // show modal
-        document.getElementById("my_modal").showModal();
+        // input validation
+        inputValidation(amount, oldBalance);
 
-        // create history
-        const history = createHistory(amount, "Flood Relief", "Feni, Bangladesh");
-        document.getElementById("histories").appendChild(history);
+        const checkValidation = inputValidation(amount, oldBalance);
+
+        if (checkValidation) {
+            const newBalance = parseInt(oldBalance) - parseInt(amount);
+            document.getElementById("balance-amount").innerText = newBalance;
+            document.getElementById("event-2").innerText = parseFloat(event) + parseFloat(amount);
+
+            // show modal
+            document.getElementById("my_modal").showModal();
+
+            // create history
+            const history = createHistory(amount, "Flood Relief", "Feni, Bangladesh");
+            document.getElementById("histories").appendChild(history);
+        }
     })
 
 document.getElementById("donate-btn-3").
@@ -61,16 +77,22 @@ document.getElementById("donate-btn-3").
         const event = document.getElementById("event-3").innerText;
         const amount = document.getElementById("donation-3").value;
         const oldBalance = document.getElementById("balance-amount").innerText;
-        const newBalance = parseInt(oldBalance) + parseInt(amount);
-        document.getElementById("balance-amount").innerText = newBalance;
-        document.getElementById("event-3").innerText = parseFloat(event) + parseFloat(amount);
 
-        // show modal
-        document.getElementById("my_modal").showModal();
+        // input validation
+        const checkValidation = inputValidation(amount, oldBalance);
 
-        // create history
-        const history = createHistory(amount, "Aid for Injured", "Dhaka, Bangladesh");
-        document.getElementById("histories").appendChild(history);
+        if (checkValidation) {
+            const newBalance = parseInt(oldBalance) - parseInt(amount);
+            document.getElementById("balance-amount").innerText = newBalance;
+            document.getElementById("event-3").innerText = parseFloat(event) + parseFloat(amount);
+
+            // show modal
+            document.getElementById("my_modal").showModal();
+
+            // create history
+            const history = createHistory(amount, "Aid for Injured", "Dhaka, Bangladesh");
+            document.getElementById("histories").appendChild(history);
+        }
     })
 
 function createHistory(amount, event, place) {
@@ -85,4 +107,24 @@ function createHistory(amount, event, place) {
     </div>
         `
     return txDiv;
+}
+
+function inputValidation(input, balance) {
+    let valid = true;
+    if (parseFloat(input) < 0) {
+        alert("Negative value is not allowed");
+        valid = false;
+    }
+    else if (parseFloat(input) > parseFloat(balance)) {
+        alert("Insufficient balance");
+        valid = false;
+    } else if (parseFloat(input) == 0) {
+        alert("Zero value is not allowed");
+        valid = false;
+    } else if (input == "") {
+        alert("Empty value is not allowed");
+        valid = false;
+    }
+
+    return valid;
 }
