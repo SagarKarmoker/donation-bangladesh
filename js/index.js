@@ -99,7 +99,7 @@ function createHistory(amount, event, place) {
     const currentTime = new Date();
     const txDiv = document.createElement("div");
     txDiv.innerHTML = `
-    <div class="card lg:card-side bg-base-100 border p-6 gap-x-4">
+    <div class="card lg:card-side bg-base-100 border p-6 gap-x-4 m-4">
         <div class="flex flex-col gap-y-3">
             <p class="font-bold">${amount} Taka is Donated for ${event} at ${place}</p>
             <p>Date : ${currentTime.toString()}</p>
