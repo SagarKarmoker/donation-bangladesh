@@ -19,8 +19,34 @@ document.getElementById("donate-btn-1").
         const newBalance = parseInt(oldBalance) + parseInt(amount);
         document.getElementById("balance-amount").innerText = newBalance;
         document.getElementById("event-1").innerText = parseFloat(event) + parseFloat(amount);
-        
+
         // show modal
-        document.getElementById("my_modal_1").showModal()
+        document.getElementById("my_modal").showModal();
     })
-    
+
+
+document.getElementById("donate-btn-2").
+    addEventListener("click", function () {
+        const event = document.getElementById("event-2").innerText;
+        const amount = document.getElementById("donation-2").value;
+        const oldBalance = document.getElementById("balance-amount").innerText;
+        const newBalance = parseInt(oldBalance) + parseInt(amount);
+        document.getElementById("balance-amount").innerText = newBalance;
+        document.getElementById("event-2").innerText = parseFloat(event) + parseFloat(amount);
+
+        // show modal
+        document.getElementById("my_modal").showModal();
+    })
+
+document.getElementById("donate-btn-3").
+    addEventListener("click", function () {
+        const event = document.getElementById("event-3").innerText;
+        const amount = document.getElementById("donation-3").value;
+        const oldBalance = document.getElementById("balance-amount").innerText;
+        const newBalance = parseInt(oldBalance) + parseInt(amount);
+        document.getElementById("balance-amount").innerText = newBalance;
+        document.getElementById("event-3").innerText = parseFloat(event) + parseFloat(amount);
+
+        // show modal
+        document.getElementById("my_modal").showModal();
+    })
